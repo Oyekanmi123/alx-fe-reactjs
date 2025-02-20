@@ -44,6 +44,7 @@ function App() {
       <Footer />
       <UserContext.Provider value={userData}>
         <ProfilePage />
+        <UserProfile />
       </UserContext.Provider>
     </>
   )
