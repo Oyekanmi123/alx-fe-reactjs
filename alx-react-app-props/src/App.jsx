@@ -8,7 +8,7 @@ import MainContent from './components/MainContent'
 import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
 import React from 'react'
-import UserContext from "./context/UserContext";
+import UserContext from "./components/UserContext";
 import ProfilePage from './ProfilePage'
 
 function App() {
