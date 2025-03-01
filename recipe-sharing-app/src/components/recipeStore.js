@@ -1,19 +1,39 @@
 import { create } from 'zustand';
 
-const useRecipeStore = create((set) => ({
-  recipes: [{ id: 1, title: "Spaghetti Bolognese", ingredients: ["pasta", "tomato", "beef"], time: 30 },
-  { id: 2, title: "Chicken Curry", ingredients: ["chicken", "curry powder", "coconut milk"], time: 40 },
-  { id: 3, title: "Vegetable Stir Fry", ingredients: ["broccoli", "carrot", "soy sauce"], time: 15 }],
-
+export const useRecipeStore = create((set) => ({
+  recipes: [],
   searchTerm: '',
-  setSearchTerm: (term) => set({ searchTerm: term }),
-
+  favorites: [],
+  recommendations: [],
   filteredRecipes: [],
-  filterRecipes: () => set(state => ({
-    filteredRecipes: state.recipes.filter(recipe =>
-      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-    )
+
+   // Actions for search and filtering
+  setSearchTerm: (term) => set({ searchTerm: term }),
+  setFilteredRecipes: (recipes) => set({ filteredRecipes: recipes }),
+
+  
+  // filterRecipes: () => set(state => ({
+  //   filteredRecipes: state.recipes.filter(recipe =>
+  //     recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+  //   )
+  // })),
+
+  // Actions for managing favorites
+  addFavorite: (recipeId) => set((state) => ({
+    favorites: [...state.favorites, recipeId],
   })),
+
+  removeFavorite: (recipeId) => set((state) => ({
+    favorites: state.favorites.filter((id) => id !== recipeId),
+  })),
+
+  // Generate recommendations (Mock logic based on favorites)
+  generateRecommendations: () => set((state) => {
+    const recommended = state.recipes.filter((recipe) =>
+      state.favorites.includes(recipe.id) && Math.random() > 0.5
+    );
+    return { recommendations: recommended };
+  }),
 
   addRecipe: (newRecipe) => set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
@@ -33,4 +53,4 @@ const useRecipeStore = create((set) => ({
 
 }));
 
-export default useRecipeStore;
+// export default useRecipeStore;

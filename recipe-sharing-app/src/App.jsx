@@ -38,6 +38,10 @@ import RecipeDetails from './components/RecipeDetails';
 import AddRecipeForm from './components/AddRecipeForm';
 import EditRecipeForm from './components/EditRecipeForm';
 import SearchBar from './components/SearchBar';
+import FavoritesList from "./components/FavoritesList";
+import RecommendationsList from "./components/RecommendationsList";
+import ErrorBoundary from "./components/ErrorBoundary";
+
 
 const App = () => {
   return (
@@ -45,7 +49,11 @@ const App = () => {
       <h1>Recipe Sharing App</h1>
       <SearchBar />
       <AddRecipeForm />
-      <RecipeList />
+      <ErrorBoundary>
+        <RecipeList />
+    </ErrorBoundary>
+      <FavoritesList />
+      <RecommendationsList />
       <Routes>
         <Route path="/" element={<RecipeList />} />
         <Route path="/add" element={<AddRecipeForm />} />
