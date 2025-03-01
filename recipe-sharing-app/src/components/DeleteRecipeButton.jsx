@@ -1,4 +1,4 @@
-import {useRecipeStore} from './recipeStore';
+import { useRecipeStore } from './recipeStore';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
