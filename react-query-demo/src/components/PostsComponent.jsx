@@ -10,6 +10,10 @@ const PostsComponent = () => {
   const { data, error, isLoading, refetch } = useQuery({
     queryKey: ["posts"], // ✅ Pass an object
     queryFn: fetchPosts,
+    cacheTime: 1000 * 60 * 5, // ✅ Data stays cached for 5 minutes
+    staleTime: 1000 * 60, // ✅ Data is considered fresh for 1 minute
+    refetchOnWindowFocus: false, // ✅ Prevents auto-refetch when switching back to tab
+    keepPreviousData: true,
   });
 
   const isError = !!error; 
