@@ -37,43 +37,43 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold text-center mb-4">Add New Recipe</h2>
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg md:max-w-2xl">
+      <h2 className="text-2xl font-bold text-center mb-4 md:text-3xl">Add New Recipe</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         
         {/* Title Input */}
         <div>
-          <label className="block text-gray-700 font-medium">Recipe Title:</label>
+          <label className="block text-gray-700 font-medium md:text-lg">Recipe Title:</label>
           <input
             type="text"
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2 rounded-lg md:p-3"
           />
           {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
         </div>
 
         {/* Ingredients Input */}
         <div>
-          <label className="block text-gray-700 font-medium">Ingredients:</label>
+          <label className="block text-gray-700 font-medium md:text-lg">Ingredients:</label>
           <textarea
             name="ingredients"
             value={formData.ingredients}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2 rounded-lg md:p-3" 
           ></textarea>
           {errors.ingredients && <p className="text-red-500 text-sm">{errors.ingredients}</p>}
         </div>
 
         {/* Preparation Steps Input */}
         <div>
-          <label className="block text-gray-700 font-medium">Preparation Steps:</label>
+          <label className="block text-gray-700 font-medium md:text-lg">Preparation Steps:</label>
           <textarea
             name="steps"
             value={formData.steps}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2 rounded-lg md:p-3"
           ></textarea>
           {errors.steps && <p className="text-red-500 text-sm">{errors.steps}</p>}
         </div>
