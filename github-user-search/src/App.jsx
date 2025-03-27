@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SearchBar from "./components/SearchBar";
-import fetchGitHubUser from "./services/api";
+import Search from "./components/Search";
+import fetchUserData from "./services/githubService";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -12,7 +12,7 @@ function App() {
     setError("");
     setUser(null);
 
-    const userData = await fetchGitHubUser(username);
+    const userData = await fetchUserData(username);
 
     if (userData) {
       setUser(userData);
